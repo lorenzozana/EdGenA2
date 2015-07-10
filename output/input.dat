@@ -1,5 +1,5 @@
 nevt:    100000;
-nprint:  1;
+nprint:  10000;
 model:   2;
 M_mode:  1;
 ifile:	 energy2.txt; 
@@ -15,12 +15,10 @@ b_s_cosx:0.001    cm;
 b_s_cosy:0.001    cm;
 theta:   0.0,3.14 rad;
 offset:  0.0,0.0,0.44 cm;
-npart:   4;
-pid:     800003,111,22,22;
-nvertex: 2;
+npart:   2;
+pid:     800003,111;
+nvertex: 1;
 vertex:  0,2;
-v_type:  1,1.0;
-vertex:  2,2;
 v_type:  1,1.0;
 output:  2;
 END

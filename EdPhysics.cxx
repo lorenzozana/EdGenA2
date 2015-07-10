@@ -111,10 +111,30 @@ void EdPhysics::MakeEvent(EdOutput *out , EdModel *model){
     vertex.SetXYZ(pos_x,pos_y,pos_z);
     vertex = vertex + tgtoff;
     int test_gen = 0;
-    while (test_gen < nvertex ) {
-      test_gen = Gen_Phasespace();
-      //    cout  << test_gen << endl;
-    }
+    // while (test_gen < nvertex ) {
+    //   test_gen = Gen_Phasespace();
+    //   //    cout  << test_gen << endl;
+    // }
+
+    n_part = 1;
+    particle_id[0] = 111;
+    charge[0] =0;
+    weight[0]= 1.;
+    towrite[0] =1;
+    double mpi0 = 0.134977; 
+    Ef[0] = fRandom->Uniform(mpi0,e_lab); 
+    pf[0] = pow(pow(Ef[0],2) - pow(mpi0,2),0.5);
+    double costheta = fRandom->Uniform(TMath::Cos(theta_max),TMath::Cos(theta_min));
+    theta[0] = TMath::ACos(costheta);
+    phi[0] = fRandom->Uniform(0.0,TMath::Pi()/2);
+    px[0] = pf[0] *TMath::Sin(theta[0])*TMath::Cos(phi[0]);
+    py[0] = pf[0] *TMath::Sin(theta[0])*TMath::Sin(phi[0]);
+    pz[0] = pf[0] *TMath::Cos(theta[0]);
+    vx[0] = vertex.X();
+    vy[0] = vertex.Y();
+    vz[0] = vertex.Z();
+
+
     out->SetTheta(theta,n_part);
     out->SetPhi(phi,n_part);
     out->SetEf(Ef,n_part);
@@ -257,7 +277,7 @@ int EdPhysics::Gen_Phasespace(){
       //     printf("mass vertex %i particle %i total=%.3e mass=%.3e max_mass%.3e \n",i,j,total_mass,val_mass[i][j],max_mass[i][j]);
     }
     if (Wtg.M() < total_mass) good_mass = Gen_Mass(i);
-    printf("mass generated Wtg=%e total=%e good_mass=%i \n",Wtg.M(),total_mass,good_mass);      
+    //  printf("mass generated Wtg=%e total=%e good_mass=%i \n",Wtg.M(),total_mass,good_mass);      
     if (Wtg.M() > total_mass) { // mass check at each vertex
       //   printf("mass generated\n");
 
