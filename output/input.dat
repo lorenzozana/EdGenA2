@@ -8,7 +8,7 @@ en:	 1.5    GeV;
 tg_Z:    1;
 tg_N:    1;
 tg_mass: 107961.738 MeV;
-length:	 40	cm;
+length:	 .1	cm;
 ras_x:	 0.2	cm;
 ras_y:	 0.2	cm;	
 b_s_cosx:0.001    cm;

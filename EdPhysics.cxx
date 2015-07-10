@@ -76,7 +76,10 @@ EdPhysics::~EdPhysics(){
 void EdPhysics::MakeEvent(EdOutput *out , EdModel *model){
   // target info
 
-    double  e_lab = model->GetEnergy();
+  double e_lab = 0.0;
+  double mpi0 = 0.134977; 
+
+  while (e_lab <= mpi0) e_lab = model->GetEnergy();
     out->SetEin(e_lab);
     beam.SetPxPyPzE(0.0, 0.0,e_lab,e_lab);
     double tglx = model->GetLx();
@@ -121,7 +124,6 @@ void EdPhysics::MakeEvent(EdOutput *out , EdModel *model){
     charge[0] =0;
     weight[0]= 1.;
     towrite[0] =1;
-    double mpi0 = 0.134977; 
     Ef[0] = fRandom->Uniform(mpi0,e_lab); 
     pf[0] = pow(pow(Ef[0],2) - pow(mpi0,2),0.5);
     double costheta = fRandom->Uniform(TMath::Cos(theta_max),TMath::Cos(theta_min));
