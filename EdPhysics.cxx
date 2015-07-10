@@ -31,7 +31,7 @@ EdPhysics::EdPhysics(EdModel *model){
       masses2[i] = part_pdg[i]->Mass();
       width2[i] = part_pdg[i]->Width();
       if (width2[i] > 0.001) printf("Particle n.%i \t pid=%i \t mass=%.3e GeV width=%.3e : Mass will be generated as %s\n",i+1,particle_id[i],masses2[i],width2[i],model->GetMassModelString());
-      else printf("Particle n.%i \t pid=%i \t mass=%.3e GeV width=%.3e \n",i+1,particle_id[i],masses2[i],width2[i]);
+      else printf("Particle n.%i \t pid=%i \t mass=%e GeV width=%.3e \n",i+1,particle_id[i],masses2[i],width2[i]);
       
     }
     nvertex = model->GetNvertex();
@@ -111,8 +111,10 @@ void EdPhysics::MakeEvent(EdOutput *out , EdModel *model){
     vertex.SetXYZ(pos_x,pos_y,pos_z);
     vertex = vertex + tgtoff;
     int test_gen = 0;
-    while (test_gen < nvertex ) test_gen = Gen_Phasespace();
-
+    while (test_gen < nvertex ) {
+      test_gen = Gen_Phasespace();
+      //    cout  << test_gen << endl;
+    }
     out->SetTheta(theta,n_part);
     out->SetPhi(phi,n_part);
     out->SetEf(Ef,n_part);
@@ -255,7 +257,7 @@ int EdPhysics::Gen_Phasespace(){
       //     printf("mass vertex %i particle %i total=%.3e mass=%.3e max_mass%.3e \n",i,j,total_mass,val_mass[i][j],max_mass[i][j]);
     }
     if (Wtg.M() < total_mass) good_mass = Gen_Mass(i);
-    //    printf("mass generated Wtg=%.3e total=%.3e good_mass=%i \n",Wtg.M(),total_mass,good_mass);      
+    printf("mass generated Wtg=%e total=%e good_mass=%i \n",Wtg.M(),total_mass,good_mass);      
     if (Wtg.M() > total_mass) { // mass check at each vertex
       //   printf("mass generated\n");
 
