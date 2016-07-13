@@ -34,9 +34,11 @@ Input file
 * nevt:    20000;                  NUMBER OF EVENTS TO GENERATE
 * nprint:  1000;                   NUMBER OF EVENTS TO HAVE A PRINTOUT (FOR DEBUGGING)
 * model:   2;      		 MODELS AVAILABLE (SEE BOTTOM FOR DIFFERENT OPTIONS)
+* M_mode:  1;          MASS MODELS AVAILABLE (SEE BOTTOM FOR DIFFERENT OPTIONS) 
 * ifile:	 energy.txt; 		 INPUT FILE SPECTRUM FOR BEAM (NEEDED FOR OPTION MODEL = 2) 
 * beam:    22;			 BEAM PARTICLE ID
 * en:	 11.0    GeV;		 BEAM ENERGY (NEEDED FOR OPTION MODEL = 1)
+* Erange:  2.0,5.0 GeV;          ENERGY RANGE FOR BEAM FLAT BETWEEN THESE 2 VALUES (NEEDED FOR OPTION MODEL = 3)
 * tg_Z:    1;	 		 TARGET Z 
 * tg_N:    1;			 TARGET N
 * tg_mass  1.876  GeV;           TARGET MASS
@@ -66,9 +68,10 @@ Models
 -------
 * 1 Phase Space Single Energy (for example e-)
 * 2 Phase Space Energy Spectrum (for example gamma)
-* 3 Cross Section (sorry, not yet)
-* 4 Amplitudes (sorry, not yet) 
-* 5 Data Points (sorry, not yet)
+* 3 Phase Space Energy Spectrum (for example gamma) flat energy spectrum
+* 4 Cross Section (sorry, not yet)
+* 5 Amplitudes (sorry, not yet) 
+* 6 Data Points (sorry, not yet)
 
 Mass Models
 -------

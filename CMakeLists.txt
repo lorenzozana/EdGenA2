@@ -14,20 +14,23 @@ file(GLOB sources
   ${PROJECT_SOURCE_DIR}/EdGen.cxx
   ${PROJECT_SOURCE_DIR}/EdInput.cxx
   ${PROJECT_SOURCE_DIR}/EdModel.cxx
+  ${PROJECT_SOURCE_DIR}/EdHisto.cxx
   ${PROJECT_SOURCE_DIR}/EdOutput.cxx
   ${PROJECT_SOURCE_DIR}/EdPhysics.cxx
-  ${PROJECT_SOURCE_DIR}/EdProcess.cxx
   ${PROJECT_SOURCE_DIR}/EdGenPhaseSpace.cxx
+  ${PROJECT_SOURCE_DIR}/EdProcess.cxx
+  ${PROJECT_SOURCE_DIR}/EdCrossSection.cxx
   )
 file(GLOB headers 
   ${PROJECT_SOURCE_DIR}/EdGen.h
   ${PROJECT_SOURCE_DIR}/EdInput.h
   ${PROJECT_SOURCE_DIR}/EdModel.h
+  ${PROJECT_SOURCE_DIR}/EdHisto.h
   ${PROJECT_SOURCE_DIR}/EdOutput.h
-  ${PROJECT_SOURCE_DIR}/EdPhysics.h
+  ${PROJECT_SOURCE_DIR}/EdPhysics.h	
+  ${PROJECT_SOURCE_DIR}/EdGenPhaseSpace.h	
   ${PROJECT_SOURCE_DIR}/EdProcess.h
-  ${PROJECT_SOURCE_DIR}/EdGenPhaseSpace.h
-
+  ${PROJECT_SOURCE_DIR}/EdCrossSection.h
   )
 
 link_directories( ${LINK_DIRECTORIES})
